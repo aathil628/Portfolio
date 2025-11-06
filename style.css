@@ -955,7 +955,7 @@ box-shadow: rgba(37, 17, 140, 0.4) -5px 5px, rgba(42, 25, 151, 0.3) -10px 10px, 
   display: flex;
   justify-content: center;
 }
-.r3 p{
+.r3 a{
        background: rgba(255, 255, 255, 0.13);
       color: #00c6fb;
       border: 1.5px solid #00c6fb;
@@ -966,8 +966,9 @@ box-shadow: rgba(37, 17, 140, 0.4) -5px 5px, rgba(42, 25, 151, 0.3) -10px 10px, 
       border-radius: 50px;
       transition: all 0.2s ease;
       cursor: pointer;
+      text-decoration: none;
 }
-.r3 p:hover{
+.r3 a:hover{
   background: #00c6fb;
   color: #fff;
   border: 1.5px solid #00c6fb;

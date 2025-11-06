@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects — Portfolio</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 100%;
+      overflow-x: hidden;
+      background: radial-gradient(ellipse at center, #172035 60%, #0c1019 100%);
+      color: #edf2ff;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 2rem 3vw 1.4rem 3vw;
+      gap: 1.6rem;
+      max-width: 100vw;
+    }
+    .q1 {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .angle {
+      font-size: 2.1rem;
+      color: #445b84;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    .profile-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2.5px solid #2acbff;
+      background: #fff;
+    }
+    .header-title .role {
+      font-weight: bold;
+      font-size: 1.38rem;
+      color: #249dff;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+    nav {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5em;
+    }
+    nav .nav-link {
+      color: #ddeaff;
+      font-size: 1.07rem;
+      text-decoration: none;
+      padding: 0.30em 0.95em;
+      border-radius: 11px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav .nav-link:hover {
+      background: #25ccff25;
+      color: #2acbff;
+    }
+    .projects-hero {
+      text-align: center;
+      margin-block: 2.4rem 2.2rem;
+      max-width: 100vw;
+    }
+    .projects-hero h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #2acbff;
+      margin-bottom: 0.5rem;
+    }
+    .projects-hero p {
+      color: #bfd7ff;
+      font-size: 1.2rem;
+    }
+    .container-fluid {
+      max-width: 100vw;
+      padding-left: 0;
+      padding-right: 0;
+      overflow-x: hidden;
+    }
+    .row {
+      max-width: 100vw;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0.8vw;
+      padding-right: 0.8vw;
+      flex-wrap: wrap;
+    }
+    .project-card {
+      background: linear-gradient(137deg,#181e2b 70%,#1b2843 100%);
+      border-radius: 2.2rem;
+      box-shadow: 0 10px 60px 0 #25ccff18, 0 1.5px 0 #25ccff33;
+      padding: 2.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 420px;
+      height: 100%;
+      max-width: 700px;
+      width: 100%;
+      border: 1.5px solid #232e47;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      margin: 0 auto;
+    }
+    .project-card img {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 1.09rem;
+      margin-bottom: 1.1rem;
+      background: #222a38;
+      border: 1.5px solid #25ccff33;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      margin-top: 0.2rem;
+    }
+    .project-card h3 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 0.72rem;
+      margin-top: 0.7rem;
+      color: #fff;
+      text-align: left;
+      width: 90%;
+      line-height: 1.16;
+      overflow-wrap: break-word;
+    }
+    .project-card p {
+      font-size: 1.13rem;
+      color: #b1b8c7;
+      text-align: left;
+      margin-bottom: 1.6rem;
+      width: 90%;
+      overflow-wrap: break-word;
+    }
+    .tech-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      justify-content: flex-start;
+      width: 90%;
+    }
+    .tech-btn {
+      background: linear-gradient(90deg, #12b3ff 38%, #235bff 100%);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 1.13rem;
+      padding: 0.36em 1.3em;
+      font-weight: 500;
+      letter-spacing: 0.015em;
+      border: none;
+      transition: background .21s;
+      box-shadow: 0 4px 18px #25ccff22;
+      margin-bottom: 0.3rem;
+    }
+    .tech-btn:hover {
+      background: linear-gradient(90deg, #3b68ff 10%, #25ccff 70%);
+      color: #fff;
+      box-shadow: 0 2px 11px #25ccff31;
+    }
+    @media (max-width: 1200px) {
+      .project-card {
+        min-height: 360px;
+        padding: 2rem 1rem 1.3rem 1rem;
+        max-width: 99vw;
+      }
+      .project-card h3, .project-card p, .tech-buttons {width: 100%;}
+    }
+    @media (max-width: 992px) {
+      .row>div[class^="col-"] {max-width: 100vw;}
+    }
+    @media (max-width: 700px) {
+      .project-card {min-height: 1px;max-width: 97vw;}
+      .projects-hero {padding-inline: 0.8em;}
+      .row {gap: 2.2rem;}
+      .row>div[class^="col-"] {max-width: 99vw;}
+    }
+    .projects-footer {
+      text-align: center;
+      margin: 3rem 0 2.1rem 0;
+    }
+    .btn-primary {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #fff;
+      background: linear-gradient(90deg, #25ccff, #3b68ff);
+      border-radius: 999px;
+      padding: 0.8em 2.1em;
+      border: none;
+      box-shadow: 0 1px 12px #25ccff21;
+      transition: background .2s, box-shadow .2s;
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #3b68ff, #25ccff);
+      box-shadow: 0 4px 24px #25ccff38;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="projects-hero">
+      <h1>All Projects</h1>
+      <p>A collection of my work</p>
+    </section>
+    <div class="container-fluid">
+      <!-- Row 1: 3 projects -->
+      <div class="row g-5 justify-content-center">
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="project-card m-auto w-100">
+            <img src="Project 1.png" alt="Project 1 thumbnail" />
+            <h3>Youtube video summarization and translation</h3>
+            <p>To make YouTube content more accessible across linguistic barriers, I developed a smart, AI-powered tool that summarizes YouTube videos and translates them into regional languages.</p>
+            <div class="tech-buttons">
+              <span class="tech-btn">Python</span>
+              <span class="tech-btn">Streamlit</span>
+              <span class="tech-btn">Google AI</span>
+              <span class="tech-btn">Translation API</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="project-card m-auto w-100">
+            <img src="Project 2.png" alt="Project 2 thumbnail" />
+            <h3>3D Web-Based Intelligent Campus Navigation System</h3>
+            <p>To reduce confusion and enhance navigation for academic environments, especially for newcomers, during orientation, events, or everyday campus life.</p>
+            <div class="tech-buttons">
+              <span class="tech-btn">Blender</span>
+              <span class="tech-btn">Three.js</span>
+              <span class="tech-btn">A* Algorithm</span>
+              <span class="tech-btn">Supabase</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 d-flex">
+          <div class="project-card m-auto w-100">
+            <img src="Project 3.png" alt="Project 3 thumbnail" />
+            <h3>Frontend UI Design-1</h3>
+            <p>7-section UI built with pure HTML and CSS with smooth scrolling and clean UI.</p>
+            <div class="tech-buttons">
+              <span class="tech-btn">HTML</span>
+              <span class="tech-btn">CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Row 2: 2 projects -->
+      <div class="row g-5 justify-content-center mt-2">
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="project-card m-auto w-100">
+            <img src="Project 4.png" alt="Project 4 thumbnail" />
+            <h3>Frontend UI Design</h3>
+            <p>A responsive landing page built entirely with HTML and CSS.</p>
+            <div class="tech-buttons">
+              <span class="tech-btn">HTML</span>
+              <span class="tech-btn">CSS</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex">
+          <div class="project-card m-auto w-100">
+            <img src="project 5.png" alt="Project 5 thumbnail" />
+            <h3>Cropzo</h3>
+            <p>The project empowers local farmers with digital tools to manage their business efficiently while helping customers access affordable farm products in one place.</p>
+            <div class="tech-buttons">
+              <span class="tech-btn">HTML</span>
+              <span class="tech-btn">CSS</span>
+              <span class="tech-btn">Bootstrap</span>
+              <span class="tech-btn">Javascript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="projects-footer">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </footer>
+  </main>
+</body>
+</html>
